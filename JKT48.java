@@ -35,6 +35,7 @@ public class JKT48 {
 
     public static void main(String[] args) {
         while (true) {
+            System.out.println("==========================");
             System.out.println("Selamat Datang di JKT 48");
             System.out.println("Pilih opsi : ");
             System.out.println("1. Login\n2. Sign Up\n3. Exit");
