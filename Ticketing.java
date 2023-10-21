@@ -4,6 +4,8 @@ import java.util.Scanner;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 public class Ticketing {
     private static Scanner in = new Scanner(System.in);
@@ -22,6 +24,7 @@ public class Ticketing {
         Ticket ticket = tickets.get(index);
         if (ticket.getAvailableTickets() >= quantity){
             ticket.decreaseAvailTikcets(quantity);
+            updateTicketsFile();
             return ticket;
         } else {
             System.out.println("Tiket sudah habis");
@@ -45,6 +48,17 @@ public class Ticketing {
             System.out.println("Error: " + e.getMessage());
         }
         return loadedTickets;
+    }
+
+    public void updateTicketsFile(){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\My_Data\\Coding\\projectJKT48\\ticket_data.txt"))) {
+            for (Ticket ticket : tickets) {
+                writer.write(ticket.getEventName() + "," + ticket.getPrice() + "," + ticket.getAvailableTickets());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     public void ticketSystem(){

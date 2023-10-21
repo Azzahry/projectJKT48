@@ -1,2 +1,2 @@
-Ramune No Mikata,200.000,50
-Renai Kinshi Jourei,200.000,50
+Ramune No Mikata,200.0,50
+Renai Kinshi Jourei,200.0,50
