@@ -4,35 +4,6 @@ public class JKT48 {
     private static Scanner in = new Scanner(System.in);
     private static LoginSystem loginSystem = new LoginSystem();
 
-    public static void login() {
-
-        System.out.print("Masukkan Username: ");
-        String username = in.nextLine();
-        
-        System.out.print("Masukkan Password: ");
-        String password = in.nextLine();
-
-        if(loginSystem.authenticateUser(username, password)){
-            System.out.println("Login berhasil!! Selamat Datang, " +username);
-        }else{
-            System.out.println("Login gagal. Silahkan Cek kembali username dan password anda");
-        }
-
-    }
-
-    public static void signUp() {
-
-        System.out.println("Ingin menambahkan pengguna baru? (ya/tidak): ");
-        String choose = in.nextLine();
-        if(choose.equalsIgnoreCase("ya")){
-            System.out.print("Masukkan username baru: ");
-            String newUsername = in.nextLine();
-            System.out.print("Masukkan password baru: ");
-            String newPassword = in.nextLine();
-            loginSystem.addUser(newUsername, newPassword); 
-        }
-    }
-
     public static void main(String[] args) {
         while (true) {
             System.out.println("==========================");
@@ -45,10 +16,10 @@ public class JKT48 {
 
             switch (menu) {
                 case 1:
-                    login();
+                    loginSystem.login();
                     break;
                 case 2:
-                    signUp();
+                    loginSystem.signUp();
                     break;
                 case 3:
                     System.out.println("Terima kasih telah menggunakan aplikasi JKT 48. Sampai jumpa lagi!");

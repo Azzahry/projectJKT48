@@ -1,10 +1,16 @@
 public class User {
+    private String userId;
     private String username;
     private String password;
 
-    public User(String username, String password) {
+    public User(String userId, String username, String password) {
+        this.userId = userId;
         this.username = username;
         this.password = password;
+    }
+
+    public String getUserId(){
+        return userId;
     }
 
     public String getUsername() {
@@ -15,7 +21,7 @@ public class User {
         return password;
     }
 
-    public boolean checkCredentials(String enteredUsername, String enteredPassword) {
-        return username.equals(enteredUsername) && password.equals(enteredPassword);
+    public boolean checkCredentials(String enteredUserId, String enteredPassword) {
+        return userId.equals(enteredUserId) && password.equals(enteredPassword);
     }
 }
