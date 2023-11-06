@@ -13,7 +13,7 @@ public class LoginSystem {
     private static Scanner in = new Scanner(System.in);
     private static Ticketing ticketing = new Ticketing();
     private static MemberBio memberBio = new MemberBio();
-    private static final String FILE_PATH = "C:\\My_Data\\Coding\\projectJKT48\\user_data.txt";
+    private static final String FILE_PATH = "C:\\My_Data\\Coding\\projectJKT48\\user_data.txt"; //Sesuaikan dengan file path anda 
 
     // Konstruktor
     public LoginSystem() {

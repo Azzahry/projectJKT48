@@ -11,10 +11,9 @@ import java.io.FileWriter;
 public class Ticketing {
     private static Scanner in = new Scanner(System.in);
     private List<Ticket> tickets;
-    // private static final String FILE_PATH = ("C:\\My_Data\\Coding\\projectJKT48\\ticket_data.txt");
 
     public Ticketing(){
-        tickets =loadTicketsFromFile("C:\\\\My_Data\\\\Coding\\\\projectJKT48\\\\ticket_data.txt");
+        tickets =loadTicketsFromFile("C:\\\\My_Data\\\\Coding\\\\projectJKT48\\\\ticket_data.txt"); //Sesuaikan dengan file path anda 
     }
 
     public List<Ticket> getAvailableTickets(){
@@ -44,7 +43,7 @@ public class Ticketing {
         List<Ticket> loadedTickets = new ArrayList<>();
 
         try{
-            List<String> lines = Files.readAllLines(Paths.get("C:\\My_Data\\Coding\\projectJKT48\\ticket_data.txt"));
+            List<String> lines = Files.readAllLines(Paths.get("C:\\My_Data\\Coding\\projectJKT48\\ticket_data.txt"));   //Sesuaikan dengan file path anda 
             for (String line : lines){
                 String[] parts = line.split(",");
                 String eventName = parts[0].trim();
@@ -59,7 +58,7 @@ public class Ticketing {
     }
 
     public void updateTicketsFile(){
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\My_Data\\Coding\\projectJKT48\\ticket_data.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\My_Data\\Coding\\projectJKT48\\ticket_data.txt"))) {    //Sesuaikan dengan file path anda 
             for (Ticket ticket : tickets) {
                 writer.write(ticket.getEventName() + "," + ticket.getPrice() + "," + ticket.getAvailableTickets());
                 writer.newLine();

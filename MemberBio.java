@@ -6,7 +6,7 @@ import java.io.IOException;
 public class MemberBio {
 
     public void biografi(){
-        try(BufferedReader reader = new BufferedReader(new FileReader("C:\\My_Data\\Coding\\projectJKT48\\Member_bio.txt"))){
+        try(BufferedReader reader = new BufferedReader(new FileReader("C:\\My_Data\\Coding\\projectJKT48\\Member_bio.txt"))){ //Sesuaikan dengan file path anda
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
