@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -23,8 +24,15 @@ public class Ticketing {
     public Ticket purchaseTicket(int index, int quantity){
         Ticket ticket = tickets.get(index);
         if (ticket.getAvailableTickets() >= quantity){
-            ticket.decreaseAvailTikcets(quantity);
-            updateTicketsFile();
+            boolean won = performLottery();
+
+            if(won){
+                System.out.println("Selamat anda mendapatkan tiket dan berhasil verifikasi!");
+                ticket.decreaseAvailTikcets(quantity);
+                updateTicketsFile();
+            }else{
+                System.out.println("Maaf, anda tidak memenangkan tiket " + ticket.getEventName());
+            }
             return ticket;
         } else {
             System.out.println("Tiket sudah habis");
@@ -79,11 +87,16 @@ public class Ticketing {
 
         Ticket purchasedTicket = purchaseTicket(ticketIndex, quantity);
         if(purchasedTicket != null){
-            System.out.println("Pembelian berhasil!");
             System.out.println("Total harga: Rp. " + purchasedTicket.getPrice() * quantity);
         }else{
             System.out.println("Pembelian gagal. Coba lagi");
         }
+    }
+
+    private boolean performLottery() {
+        Random random = new Random();
+        int winningNumber = random.nextInt(2); // Angka acak antara 0 dan 1
+        return winningNumber == 1;
     }
 
 }

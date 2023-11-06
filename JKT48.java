@@ -23,7 +23,7 @@ public class JKT48 {
                     break;
                 case 3:
                     System.out.println("Terima kasih telah menggunakan aplikasi JKT 48. Sampai jumpa lagi!");
-                    return; // Keluar dari program
+                    return;
                 default:
                     System.out.println("Pilihan tidak valid. Silakan coba lagi.");
                     break;

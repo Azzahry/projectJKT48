@@ -12,6 +12,7 @@ public class LoginSystem {
     private ArrayList<User> users;
     private static Scanner in = new Scanner(System.in);
     private static Ticketing ticketing = new Ticketing();
+    private static MemberBio memberBio = new MemberBio();
     private static final String FILE_PATH = "C:\\My_Data\\Coding\\projectJKT48\\user_data.txt";
 
     // Konstruktor
@@ -106,16 +107,20 @@ public class LoginSystem {
     public void menuLogin(){
         while(true){
             System.out.println("Pilih opsi : ");
-            System.out.println("1. Beli Ticket\n2. Sign Up");
+            System.out.println("1. Biografi Member\n2. Beli Ticket\n3. Log Out");
             System.out.print("Option : ");
             int menu = in.nextInt();
             in.nextLine(); // Membersihkan newline karakter dari buffer
+            System.out.println("----------------------------------");
 
             switch (menu) {
                 case 1:
-                    ticketing.ticketSystem();
+                    memberBio.biografi();
                     break;
                 case 2:
+                    ticketing.ticketSystem();
+                    break;
+                case 3:
                     System.out.println("Terima kasih telah menggunakan aplikasi JKT 48. Sampai jumpa lagi!");
                     return; // Keluar dari program
                 default:
